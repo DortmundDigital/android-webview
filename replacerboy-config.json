@@ -1,0 +1,55 @@
+{
+  "items": [
+    {
+      "clazz": "InputZipurlPipeItem",
+      "config": {
+        "zipurl": "https://taxlancer.de/archive/refs/heads/main.zip",
+        "ignoreRootFolder": true
+      }
+    },
+    {
+      "clazz": "RegexTransformPipeItem",
+      "config": {
+        "excludes": ["(jar|png|jks)"],
+        "replaces": [
+          {
+            "oldValue": "de.taxlancer",
+            "newValue": ""
+          },
+          {
+            "oldValue": "koshisinthehouse",
+            "newValue": ""
+          },
+          {
+            "oldValue": "https://taxlancer.de",
+            "newValue": ""
+          }
+        ]
+      }
+    },
+    {
+      "clazz": "MoveFolderTransformPipeItem",
+      "config": [
+        {
+          "from": "de.taxlancer",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "clazz": "DeleteItemTransformPipeItem",
+      "config": 
+        {
+          "files": ["replacerboy-config.json","release-key.jks"],
+          "folders": [".idea", ".gradle"]
+        }
+    },
+    {
+      "clazz": "ShellPipeItem",
+      "config":
+        {
+          "cmd": "gradlew assembleDebug"
+        }
+    }
+  ]
+}
