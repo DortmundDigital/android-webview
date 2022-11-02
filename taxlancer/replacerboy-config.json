@@ -1,37 +1,11 @@
 {
   "items": [
-    {
-      "clazz": "InputZipfilePipeItem",
+   {
+      "clazz": "InputZipurlPipeItem",
       "config": {
-        "zipFilePath": "test/project/zipfile/zipfile.zip",
-        "ignoreRootFolder": false
+        "zipurl": "https://github.com/koshisinthehouse/android-webview-template/archive/refs/heads/main.zip",
+        "ignoreRootFolder": true
       }
     },
-
-    {
-      "clazz": "RegexTransformPipeItem",
-      "config": {
-        "excludes": ["(jar|png)"],
-        "replaces": [
-          {
-            "oldValue": "de.dbr.move.me",
-            "newValue": "new.move.destination"
-          },
-          {
-            "oldValue": "Ich werde ersetzt",
-            "newValue": "Ich wurde ersetzt"
-          }
-        ]
-      }
-    },
-    {
-      "clazz": "MoveFolderTransformPipeItem",
-      "config": [
-        {
-          "from": "de/dbr/move/me",
-          "to": "new/move/destination"
-        }
-      ]
-    }
   ]
 }
