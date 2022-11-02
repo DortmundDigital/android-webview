@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "clazz": "InputZipfilePipeItem",
+      "config": {
+        "zipFilePath": "test/project/zipfile/zipfile.zip",
+        "ignoreRootFolder": false
+      }
+    },
+
+    {
+      "clazz": "RegexTransformPipeItem",
+      "config": {
+        "excludes": ["(jar|png)"],
+        "replaces": [
+          {
+            "oldValue": "de.dbr.move.me",
+            "newValue": "new.move.destination"
+          },
+          {
+            "oldValue": "Ich werde ersetzt",
+            "newValue": "Ich wurde ersetzt"
+          }
+        ]
+      }
+    },
+    {
+      "clazz": "MoveFolderTransformPipeItem",
+      "config": [
+        {
+          "from": "de/dbr/move/me",
+          "to": "new/move/destination"
+        }
+      ]
+    }
+  ]
+}
